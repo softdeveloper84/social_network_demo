@@ -1,6 +1,7 @@
-.content {
+.postsBlock {
     grid-area: c;
     background-color: bisque;
+    padding: 10px;
 }
 
 .item {
@@ -8,5 +9,5 @@
 }
 
 .posts {
-
+    margin-top: 10px;;
 }
