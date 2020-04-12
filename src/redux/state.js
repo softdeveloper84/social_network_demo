@@ -1,5 +1,7 @@
 import React from "react";
-import {rerenderEntireTree} from "../render";
+
+
+let rerenderEntireTree = () => {};
 
 let state = {
     profilePage: {
@@ -8,7 +10,7 @@ let state = {
             {id:2, name: "Ivan", message: "My first post", likeCont: 1},
             {id:3, name: "Ivan", message: "Second post", likeCont: 121},
         ],
-        newPostText: "it-camasutra.com"
+        newPostText: "profile name"
     },
     dialogsPage: {
         dialogs: [
@@ -53,6 +55,11 @@ export let addPost = () => {
 export let updateNewPostText = (postMessage) => {
     state.profilePage.newPostText = postMessage;
     rerenderEntireTree(state);
+    window.state = state;
+};
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 };
 
 export default state;
