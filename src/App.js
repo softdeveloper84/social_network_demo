@@ -23,7 +23,7 @@ const App = (props) => {
                                addPost={props.addPost}/>}/>
                   <Route path="/dialogs" component={() =>
                       <Dialogs dialogsData={props.state.dialogsPage.dialogs}
-                               essageData={props.state.dialogsPage.messages}/>
+                               messageData={props.state.dialogsPage.messages}/>
                   } />
                   <Route path="/news" component={() => <News/>}/>
                   <Route path="/music" component={() => <Music/>}/>
