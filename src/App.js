@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, BrowserRouter } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Header from "./components/Heder/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -12,7 +12,6 @@ import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
   return (
-      <BrowserRouter>
           <div className="app-wrapper">
               <Header />
               <Navbar friends={props.state.sidebar.friends}
@@ -22,17 +21,13 @@ const App = (props) => {
                       <Profile profilePage={props.state.profilePage}
                                dispatch={props.dispatch}/>}/>
                   <Route path="/dialogs" render={() =>
-                      <Dialogs dialogsData={props.state.dialogsPage.dialogs}
-                               messageData={props.state.dialogsPage.messages}
-                               newDialogText={props.state.dialogsPage.newDialogText}
-                               dispatch={props.dispatch}/>
+                      <Dialogs store={props.store}/>
                   } />
                   <Route path="/news" component={() => <News/>}/>
                   <Route path="/music" component={() => <Music/>}/>
                   <Route path="/settings" component={() => <Settings/>}/>
               </div>
           </div>
-      </BrowserRouter>
   );
 };
 
