@@ -1,4 +1,8 @@
-// let rerenderEntireTree = () => {};
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE_DIALOGS = "ADD-MESSAGE-DIALOGS";
+const UPDATE_MESSAGE_DIALOGS = "UPDATE-MESSAGE-DIALOGS";
+
 
 let store = {
     _state: {
@@ -8,7 +12,7 @@ let store = {
                 {id:2, name: "Ivan", message: "My first post", likeCont: 1},
                 {id:3, name: "Ivan", message: "Second post", likeCont: 121},
             ],
-                newPostText: "profile name"
+            newPostText: "profile name"
         },
         dialogsPage: {
             dialogs: [
@@ -18,11 +22,12 @@ let store = {
                 {id: 4, name: "Gregor"},
                 {id: 5, name: "Victor"},
             ],
-                messages:  [
+            messages:  [
                 {id:1, "name": "Hello"},
                 {id:2, "name": "How are you, bro?"},
                 {id:3, "name": "thanks bro, i am fine"},
-            ]
+            ],
+            newDialogText: ""
         },
         sidebar:{
             friends:[
@@ -39,6 +44,7 @@ let store = {
         ],
     },
     _callSubscriber: () => {},
+
     getState(){
         return this._state;
     },
@@ -46,25 +52,9 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this);
-    },
-
     dispatch(action){
-        if (action.type == 'ADD-POST'){
-            debugger;
-            let newPost = {
+        if (action.type === ADD_POST){
+             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
                 likesCount: 0
@@ -72,14 +62,50 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = "";
             this._callSubscriber(this);
-        } else if(action.type == 'UPDATE-NEW-POST-TEXT'){
+        } else if(action.type === UPDATE_NEW_POST_TEXT){
             this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this);
+        } else if(action.type === ADD_MESSAGE_DIALOGS){
+            let message = {
+                id:111,
+                "name": this._state.dialogsPage.newDialogText
+            };
+            this._state.dialogsPage.messages.push(message);
+            this._state.dialogsPage.newDialogText = "";
+            this._callSubscriber(this);
+        }else if(action.type === UPDATE_MESSAGE_DIALOGS) {
+            this._state.dialogsPage.newDialogText = action.newText;
             this._callSubscriber(this);
         }
     },
 };
 
-export default store;
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    };
+};
 
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
+    };
+};
+
+export const addMessageDialogsActionCreator = () => {
+    return {
+        type: ADD_MESSAGE_DIALOGS,
+    }
+};
+
+export const updateMessageDialogActionCreator = (text) => {
+    return {
+        type: UPDATE_MESSAGE_DIALOGS,
+        newText: text
+    };
+};
+
+export default store;
 
 
