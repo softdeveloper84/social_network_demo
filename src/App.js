@@ -11,11 +11,12 @@ import Settings from "./components/Settings/Settings";
 
 
 const App = (props) => {
+    debugger;
   return (
           <div className="app-wrapper">
               <Header />
               <Navbar friends={props.state.sidebar.friends}
-                      navbarItemsData={props.state.navbarItemsData}/>
+                      navbarItemsData={props.state.sidebar.navbarItemsData}/>
               <div className="app-wrapper-content">
                   <Route path="/profile" render={() =>
                       <Profile profilePage={props.state.profilePage}
