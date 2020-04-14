@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = {
+        name: "Hello",
+        protocol: "http",
+        maxStudentsCount: 10,
+        isOnline: true,
+        students: ['ivan', 'andrey', 'farid'],
+        classRoom: {
+            teacher: {
+                name: 'wew',
+                age: 18
+            }
+        }
+    };
+    var b = {...a};
+    console.log(a);
+    b.classRoom = {...a.classRoom};
+    b.classRoom.teacher = {...a.classRoom.teacher};
+    b.students = {...a.students};
+    b.classRoom.teacher.name = "Nastja";
+    console.log(b);
+</script>
+</body>
+</html>
