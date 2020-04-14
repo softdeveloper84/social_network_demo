@@ -16,7 +16,7 @@ const App = (props) => {
               <Header/>
               {/*<Navbar friends={props.state.sidebar.friends}*/}
               {/*        navbarItemsData={props.state.sidebar.navbarItemsData}/>*/}
-                <NavbarContainer/>
+              <NavbarContainer/>
               <div className="app-wrapper-content">
                   <Route path="/profile" render={() =>
                       // <Profile store={props.store}/>

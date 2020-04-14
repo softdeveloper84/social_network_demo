@@ -3,7 +3,7 @@ import s from './FriendList.module.css';
 
 
 const FriendList = (props) => {
-    let friends = props.friends.map(el => <span>
+    let friends = props.friends.map(el => <span key={el.id}>
         <img src={el.img} alt=""/>
         <div>{el.name}</div>
     </span>);

@@ -5,7 +5,7 @@ import NavbarItem from "./NavbarItem/NavbarItem";
 
 const Navbar = (props) => {
     let navbarItemList = props.navbarItemsData.map(el => (
-        <NavbarItem path={el.path} title={el.title}/>
+        <NavbarItem key={el.id} path={el.path} title={el.title}/>
     ));
     return (
         <div>
