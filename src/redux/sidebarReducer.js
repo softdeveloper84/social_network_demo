@@ -9,6 +9,7 @@ let init_state = {
           {id: 3, title:"News", path:"/news"},
           {id: 4, title:"Music", path:"/music"},
           {id: 5, title:"Settings", path:"/settings"},
+          {id: 6, title:"Users", path:"/users"},
      ],
 };
 

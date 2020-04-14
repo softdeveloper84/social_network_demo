@@ -8,23 +8,24 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
+import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = (props) => {
   return (
           <div className="app-wrapper">
               <Header/>
-              {/*<Navbar friends={props.state.sidebar.friends}*/}
-              {/*        navbarItemsData={props.state.sidebar.navbarItemsData}/>*/}
               <NavbarContainer/>
               <div className="app-wrapper-content">
                   <Route path="/profile" render={() =>
-                      // <Profile store={props.store}/>
                       <Profile/>
-                  }/>
+                  } />
                   <Route path="/dialogs" render={() =>
-                      // <DialogsContainer store={props.store}/>
                       <DialogsContainer/>
+                  } />
+                  <Route path="/users" render={() =>
+                      <UsersContainer/>
                   } />
                   <Route path="/news" component={() => <News/>}/>
                   <Route path="/music" component={() => <Music/>}/>

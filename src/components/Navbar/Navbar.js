@@ -13,9 +13,9 @@ const Navbar = (props) => {
                 <div>
                     {navbarItemList}
                 </div>
-                <div className={s.sidebar}>
-                    <FriendList friends={props.friends}/>
-                </div>
+                {/*<div className={s.sidebar}>*/}
+                {/*    <FriendList friends={props.friends}/>*/}
+                {/*</div>*/}
             </nav>
         </div>
     );
