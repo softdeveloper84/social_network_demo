@@ -13,7 +13,6 @@ let init_state = {
 };
 
 const sidebarReducer = (state = init_state, action) => {
-
      return state;
 };
 
