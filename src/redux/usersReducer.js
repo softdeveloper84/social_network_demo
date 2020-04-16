@@ -1,19 +1,16 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS = "SET_TOTAL_USERS";
 
 
 let init_state = {
-    users: [
-        // {id:1, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRp0mVD_rr7-5sliY0MiB8-Rr2KhY5cMEyaDTl4itMtCtw3U1Ts&usqp=CAU',
-        //     followed:true, fullName: 'Alex', status: 'active', location: {city: 'kiev', country: 'Ukraine'}},
-        // {id:2, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRp0mVD_rr7-5sliY0MiB8-Rr2KhY5cMEyaDTl4itMtCtw3U1Ts&usqp=CAU',
-        //     followed:false, fullName: 'Lexus', status: 'active', location: {city: 'grodno', country: 'Belarus'}},
-        // {id:3, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRp0mVD_rr7-5sliY0MiB8-Rr2KhY5cMEyaDTl4itMtCtw3U1Ts&usqp=CAU',
-        //     followed:true, fullName: 'Ivanov', status: 'active', location: {city: 'moskow', country: 'Russian'}},
-    ],
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 50,
+    currentPage: 1,
 };
-
 
 const usersReducer = (state = init_state, action) => {
 
@@ -39,8 +36,12 @@ const usersReducer = (state = init_state, action) => {
                 })
             };
         case SET_USERS:{
-            return {...state, users: [...state.users, ...action.users]}
+            return {...state, users: action.users};
         }
+        case SET_CURRENT_PAGE:
+            return  {...state, currentPage: action.currentPage};
+        case SET_TOTAL_USERS:
+            return {...state, totalUsersCount: action.totalUsers};
         default:
             return state;
     }
@@ -66,6 +67,20 @@ export const setUsersAC = (users) => {
         type: SET_USERS,
         users: users
     }
-}
+};
+
+export const setCurrentPageAC = (currentPage) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        currentPage: currentPage
+    };
+};
+
+export const setTotalUsersAC = (totalUsers) => {
+    return {
+        type: SET_TOTAL_USERS,
+        totalUsers: totalUsers
+    }
+};
 
 export default usersReducer;
