@@ -1,8 +1,8 @@
 import styles from "./users.module.css";
-import logo from "../../assets/photos/no_person.jpeg";
+import logo from "../../assets/images/no_person.jpeg";
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {follow, unfollow} from "../../api/api";
+import {userAPI} from "../../api/api";
 
 
 const Users = (props) => {
@@ -32,20 +32,10 @@ const Users = (props) => {
                             </div>
                             <div>
                                 { u.followed
-                                    ? <button onClick={() => {
-                                        unfollow(u.id).then(response => {
-                                            if(response.data.resultCode === 0){
-                                                props.unfollow(u.id)
-                                            }
-                                        });
-                                    }}>Unfollow</button>
-                                    : <button onClick={() => {
-                                        follow(u.id).then(response => {
-                                            if(response.data.resultCode === 0){
-                                                props.follow(u.id)
-                                            }
-                                        });
-                                    }}>Follow</button> }
+                                    ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                              onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
+                                    : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                              onClick={() => { props.follow(u.id) }}>Follow</button> }
                             </div>
                         </span>
                         <span>
