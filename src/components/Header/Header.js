@@ -7,7 +7,9 @@ const Header = (props) => {
         <div>
             <img src="https://www.kindpng.com/picc/m/225-2254548_instagram-social-network-logo-of-photo-camera-ig.png" alt=""/>
             <div className={s.loginBlock}>
-                { props.isAuth? <NavLink to={'/login'}>{props.login}</NavLink> : <NavLink to={'/login'}>Login</NavLink> }
+                { props.isAuth
+                    ? <div>{props.login} <button onClick={props.logout}>Logout</button></div>
+                    : <NavLink to={'/login'}>Login</NavLink> }
             </div>
         </div>
     );
