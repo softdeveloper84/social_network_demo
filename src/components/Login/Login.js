@@ -11,7 +11,6 @@ import style from "../../components/Common/FormsControls/FormControl.module.css"
 const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = (props) => {
-    debugger
   return (
       <form onSubmit={props.handleSubmit}>
         <div>
