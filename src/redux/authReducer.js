@@ -1,4 +1,4 @@
-import {authAPI, userAPI} from "../api/api";
+import {authAPI} from "../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const UNFOLLOW = "UNFOLLOW";
@@ -36,6 +36,17 @@ export const getAuthUserData = () => {
                 dispatch(setAuthUserData(userId, email, login));
             }
         });
+    }
+};
+
+export const loginUser = (email, password, rememberMe) => {
+    return (dispatch) => {
+        debugger
+        authAPI.login(email, password, rememberMe).then(data => {
+            if(data.resultCode === 0){
+                dispatch(getAuthUserData());
+            }
+        })
     }
 };
 

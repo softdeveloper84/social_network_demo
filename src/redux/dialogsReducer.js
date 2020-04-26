@@ -1,5 +1,4 @@
 const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_MESSAGE_DIALOGS = "UPDATE-MESSAGE-DIALOGS";
 
 let init_state = {
     dialogs: [
@@ -10,28 +9,18 @@ let init_state = {
         {id: 5, name: "Victor"},
     ],
     messages:  [
-        {id:1, "name": "Hello"},
-        {id:2, "name": "How are you, bro?"},
-        {id:3, "name": "thanks bro, i am fine"},
+        {id:1, "message": "Hello"},
+        {id:2, "message": "How are you, bro?"},
+        {id:3, "message": "thanks bro, i am fine"},
     ],
-    newDialogText: "",
-    placeholderText: "Enter your message"
 };
 
 const dialogsReducer = (state = init_state, action) => {
     switch (action.type) {
         case SEND_MESSAGE:{
-            let body = state.newDialogText;
             return {
                 ...state,
-                newDialogText: "",
-                messages: [...state.messages, {id: 34, name: body}]
-            };
-        }
-        case UPDATE_MESSAGE_DIALOGS:{
-            return {
-                ...state,
-                newDialogText: action.newText
+                messages: [...state.messages, {id: 78, message: action.message}]
             };
         }
         default:
@@ -39,16 +28,10 @@ const dialogsReducer = (state = init_state, action) => {
     }
 };
 
-export const addMessageDialogsActionCreator = () => {
+export const sendMessage = (message) => {
     return {
         type: SEND_MESSAGE,
-    }
-};
-
-export const updateMessageDialogActionCreator = (text) => {
-    return {
-        type: UPDATE_MESSAGE_DIALOGS,
-        newText: text
+        message
     };
 };
 

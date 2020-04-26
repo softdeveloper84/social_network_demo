@@ -9,7 +9,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import LoginContainer from "./components/Login/LoginContainer";
 
 
 const App = (props) => {
@@ -30,7 +30,7 @@ const App = (props) => {
                   <Route path="/news" component={() => <News/>}/>
                   <Route path="/music" component={() => <Music/>}/>
                   <Route path="/settings" component={() => <Settings/>}/>
-                  <Route path="/login" component={() => <LoginPage/>}/>
+                  <Route path="/login" component={() => <LoginContainer/>}/>
               </div>
           </div>
   );
