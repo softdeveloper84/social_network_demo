@@ -6,10 +6,12 @@ import {login} from "../../redux/authReducer";
 import {Input} from "../Common/FormsControls/FormControls";
 import {maxLengthCreator, requiredField} from "../../utils/validators/validators";
 import {Redirect} from "react-router-dom";
+import style from "../../components/Common/FormsControls/FormControl.module.css";
 
 const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = (props) => {
+    debugger
   return (
       <form onSubmit={props.handleSubmit}>
         <div>
@@ -26,10 +28,11 @@ const LoginForm = (props) => {
                  validate={[requiredField, maxLength30]}/>
         </div>
         <div>
-          <Field component={Input}
+            <Field component={Input}
                  type={"checkbox"}
                  name={"rememberMe"}/> remeber me
         </div>
+        {props.error && <div className={style.formSummaryControl}>{props.error}</div>}
         <div>
           <button>Login</button>
         </div>
@@ -46,8 +49,8 @@ const Login = (props) => {
         return <Redirect to={"/profile"}/>
     }
     return <div>
-    <h1>Login</h1>
-    <LoginReduxForm onSubmit={props.onSubmit}/>
+        <h1>Login</h1>
+        <LoginReduxForm onSubmit={props.onSubmit}/>
     </div>
 };
 
