@@ -8,6 +8,7 @@ const SET_USER_STATUS = "SET_USER_STATUS";
 let init_state = {
     posts: [
         {id:1, name: "Alex", message: "Hi", likeCont: 10},
+        {id:1, name: "Lexus", message: "Hahaha", likeCont: 42},
     ],
     profile: null,
     status: ""

@@ -2,7 +2,7 @@ import React from "react";
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
-import {requiredField, maxLengthCreator} from "../../../utils/validators/validators";
+import {maxLengthCreator, requiredField} from "../../../utils/validators/validators";
 import {TextArea} from "../../Common/FormsControls/FormControls";
 
 const maxLength10 = maxLengthCreator(10);
@@ -28,9 +28,9 @@ const PostReduxForm = reduxForm({
 })(PostForm);
 
 
-const MyPosts = (props) => {
-    let postsElements = props.posts.map(el => (
-       <Post key={el.id} name={el.name} message={el.message} likes={el.likeCont}/>
+const MyPosts = React.memo((props) => {
+    let postsElements = [...props.posts].reverse().map(el => (
+        <Post key={el.id} name={el.name} message={el.message} likes={el.likeCont}/>
     ));
 
     let onSubmit = (formData) => {
@@ -47,6 +47,6 @@ const MyPosts = (props) => {
             </div>
         </div>
     );
-};
+});
 
 export default MyPosts;
