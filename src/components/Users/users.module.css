@@ -1,9 +1,3 @@
 .userPhoto {
     height: 100px;
 }
-
-.selectedPage {
-    background-color: blue;
-    color: white;
-    font-weight: bold;
-}

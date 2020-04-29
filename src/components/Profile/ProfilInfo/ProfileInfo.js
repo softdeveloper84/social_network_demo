@@ -7,8 +7,8 @@ import ProfileStatus from "../ProfileStatus";
 import ProfileStatusWithHooks from "../ProfileStatusWithHooks";
 
 
-const ProfileInfo = (props) => {
-    if(!props.profile){
+const ProfileInfo = ({profile, status, updateUserStatus}) => {
+    if(!profile){
         return <Preloader />
     }
     return (
@@ -17,8 +17,8 @@ const ProfileInfo = (props) => {
             {/*    <img src={topImage} alt=""/>*/}
             {/*</div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large? props.profile.photos.large : noPersonLogo}/>
-                <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
+                <img src={profile.photos.large ? profile.photos.large : noPersonLogo}/>
+                <ProfileStatusWithHooks status={status} updateUserStatus={updateUserStatus}/>
             </div>
         </div>
     );
