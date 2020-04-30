@@ -34,7 +34,10 @@ test('after deleting length should not be changed if id is incorrect', () => {
 });
 
 test('likes count must be 9', () => {
+    // 1. test data
     const action = addPost("Test message");
+    // 2. action
     let new_state = profileReducer(state, action);
+    // 3. expectation
     expect(new_state.posts[2].likeCont).toBe(9);
 });

@@ -34,7 +34,6 @@ const MyPosts = React.memo((props) => {
     ));
 
     let onSubmit = (formData) => {
-        debugger
         props.addPost(formData.message);
     };
 
