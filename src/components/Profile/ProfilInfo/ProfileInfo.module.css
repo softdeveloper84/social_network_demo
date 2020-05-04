@@ -3,6 +3,14 @@
     height: 200px;
 }
 
-.descriptionBlock{
+.descriptionBlock {
     padding: 10px;
+}
+
+.mainPhoto {
+    max-width: 200px;
+}
+
+.contact {
+    padding-left: 20px;
 }

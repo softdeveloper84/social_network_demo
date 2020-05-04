@@ -1,7 +1,6 @@
 import React from "react";
 import ProfileInfo from "./ProfilInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainter";
-import {updateUserStatus} from "../../redux/profileReducer";
 
 
 const Profile = (props) => {
@@ -9,7 +8,10 @@ const Profile = (props) => {
       <div>
           <ProfileInfo status={props.status}
                        profile={props.profile}
-                       updateUserStatus={props.updateUserStatus}/>
+                       isOwner={props.isOwner}
+                       updateUserStatus={props.updateUserStatus}
+                       saveProfile={props.saveProfile}
+                       savePhoto={props.savePhoto}/>
           <MyPostsContainer/>
       </div>
   );
