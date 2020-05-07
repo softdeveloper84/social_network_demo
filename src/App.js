@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -22,9 +22,19 @@ import {withSuspend} from "./hoc/withSuspense";
 
 
 class App extends React.Component {
+
+    // catchAllUnhandledError = (promiseRejectionEvent) => {
+    //     alert("some error");
+    // };
+
     componentDidMount() {
         this.props.initializeApp();
+        // window.addEventListener("unhandledrejection", this.catchAllUnhandledError);
     }
+
+    // componentWillUnmount(){
+    //     window.removeEventListener("unhandledrejection", this.catchAllUnhandledError);
+    // }
 
     render() {
         if (!this.props.isInitialized){
@@ -35,17 +45,22 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <NavbarContainer/>
                 <div className="app-wrapper-content">
-                    <Route path="/profile/:userId?" render={() =>
-                        <ProfileContainer/>
-                    }/>
-                    <Route path="/dialogs" render={withSuspend(DialogsContainer)}/>
-                    <Route path="/users" render={() =>
-                        <UsersContainer/>
-                    }/>
-                    <Route path="/news" component={() => <News/>}/>
-                    <Route path="/music" component={() => <Music/>}/>
-                    <Route path="/settings" component={() => <Settings/>}/>
-                    <Route path="/login" component={() => <LoginContainer/>}/>
+                    <Route path="/"
+                           render={() => <Redirect to={"/profile"}/>}/>
+                    <Route path="/profile/:userId?"
+                           render={() => <ProfileContainer/>}/>
+                    <Route path="/dialogs"
+                           render={withSuspend(DialogsContainer)}/>
+                    <Route path="/users"
+                           render={() => <UsersContainer/>}/>
+                    <Route path="/news"
+                           component={() => <News/>}/>
+                    <Route path="/music"
+                           component={() => <Music/>}/>
+                    <Route path="/settings"
+                           component={() => <Settings/>}/>
+                    <Route path="/login"
+                           component={() => <LoginContainer/>}/>
                 </div>
             </div>
         );

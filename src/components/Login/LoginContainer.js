@@ -8,7 +8,7 @@ import {login} from "../../redux/authReducer";
 class LoginContainer extends React.Component{
 
     onSubmit = (formData) => {
-        this.props.loginUser(formData.login, formData.password, formData.rememberMe);
+        this.props.loginUser(formData.login, formData.password, formData.rememberMe, formData.captcha);
     };
 
     render() {

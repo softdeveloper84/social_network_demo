@@ -16,7 +16,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, savePhoto, sav
     }
 
     const onMainPhotoSelected = (e) => {
-        if(e.target.files.length){
+        if (e.target.files.length) {
             savePhoto(e.target.files[0]);
         }
     };

@@ -10,12 +10,14 @@ import style from "../../components/Common/FormsControls/FormControl.module.css"
 
 const maxLength30 = maxLengthCreator(30);
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   return (
       <form onSubmit={handleSubmit}>
         {CreateField(Input, 'Login', 'login', null, [requiredField, maxLength30])}
         {CreateField(Input, 'Password', 'password', 'password', [requiredField, maxLength30])}
         {CreateField(Input, null, 'rememberMe', 'checkbox', null, null, 'remember me')}
+        { captchaUrl && <img src={captchaUrl}/>}
+        { captchaUrl && CreateField(Input, "captcha", 'captcha', null, [requiredField], null, null)}
         {error && <div className={style.formSummaryControl}>{error}</div>}
         <div>
           <button>Login</button>
@@ -34,12 +36,13 @@ const Login = (props) => {
     }
     return <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={props.onSubmit}/>
+        <LoginReduxForm onSubmit={props.onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
 };
 
 const mapStateToProps = (state) => {
   return {
+      captchaUrl: state.auth.captchaUrl,
       isAuth: state.auth.isAuth
   }
 };
