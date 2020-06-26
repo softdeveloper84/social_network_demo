@@ -6,6 +6,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/redux-form": "^8.2.5",
+    "@typescript-eslint/parser": "^2.33.0",
     "axios": "^0.19.2",
     "gh-pages": "^2.2.0",
     "primeicons": "^2.0.0",
@@ -20,7 +27,9 @@
     "redux-devtools": "^3.5.0",
     "redux-form": "^8.3.5",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "typescript": "^3.8.3",
+    "typescript-eslint": "0.0.1-alpha.0"
   },
   "scripts": {
     "start": "react-scripts start",

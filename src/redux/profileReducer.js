@@ -1,6 +1,5 @@
 import {profileAPI, userAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
-import {dataKey} from "redux-form/lib/util/eventConsts";
 
 const ADD_POST = "ADD-POST";
 const DELETE_POST = "DELETE_POST";

@@ -9,6 +9,7 @@ const initialState = {
     email: null,
     login: null,
     isAuth: false,
+
     captchaUrl: null
 };
 
