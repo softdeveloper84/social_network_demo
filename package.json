@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/redux-form": "^8.2.5",
     "@typescript-eslint/parser": "^2.33.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "gh-pages": "^2.2.0",
     "primeicons": "^2.0.0",
     "primereact": "^4.1.2",
